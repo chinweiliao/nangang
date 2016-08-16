@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+		function getUniqueId() {
+     		var dateObject = new Date();
+     		return uniqueId = dateObject.getFullYear() + '' + dateObject.getMonth() + '' + dateObject.getDate() + '' + dateObject.getTime();
+     	}
+     	
+     	function Check_People(){
+		//DoShowPopup("");
+			var TempStr = "?Portal_Id_Filter=7"
+			+"&UID="+getUniqueId()
+			;
+			var iframe = document.getElementById('IFrame_Popup');
+			iframe.src = "https://ngsc.cyc.org.tw/IISystem/Portal/Popup_Check_People.jsp"+TempStr;
+		}
+
+		function Return_Check_People(valueout){
+			if (valueout != null) {
+				div_Gym_Result.innerText = valueout.Gym_Result + " 人";
+				div_Pool_Result.innerText = valueout.Pool_Result + " 人";
+				div_Gym_Result_Max.innerText = "容留"+valueout.Gym_Result_Max + "人";
+				div_Pool_Result_Max.innerText = "容留"+valueout.Pool_Result_Max + "人";
+				div_Result_Time.innerText = "最後更新：" + valueout.Result_Time;
+		//DoShowPopup("none");
+			}	
+		}
+	setInterval("Check_People()", 1000);
+
+	</script>
+
+
+</head>
+
+<body>
+<div id = div_Gym_Result>haha</div>
+<div id = div_Pool_Result>hah2</div>
+<div id = div_Gym_Max>hah3</div>
+<div id = div_Pool_Max>hah4</div>
+<div id = div_Result_Time>hah5</div>
+
+</body>
+
+</html>
